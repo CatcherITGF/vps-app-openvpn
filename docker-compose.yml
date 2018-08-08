@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  app:
+    cap_add:
+      - NET_ADMIN
+    image: nebukad/ikev2-vpn-alpine
+    container_name: openvpn
+    ports:
+      - "1194:1194/udp"
+    logging:
+      driver: none
+    restart: always
+    volumes:
+      - ./conf:/etc/openvpn
